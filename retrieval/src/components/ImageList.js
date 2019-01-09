@@ -1,3 +1,4 @@
+import './ImageList.css';
 import React from 'react';
 
 const ImageList = (props) => {
@@ -6,7 +7,7 @@ const ImageList = (props) => {
     });
 
     return (
-        <div>
+        <div className="image-list">
             <h5>Retrieved { props.images.length } images</h5>
             {image}
         </div>
