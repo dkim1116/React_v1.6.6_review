@@ -8,9 +8,11 @@ const ImageList = (props) => {
     });
 
     return (
-        <div className="image-list">
+        <div>
             <h5>Retrieved { props.images.length } images</h5>
-            {image}
+            <div className="image-list">
+                {image}
+            </div>
         </div>
     );
 }
