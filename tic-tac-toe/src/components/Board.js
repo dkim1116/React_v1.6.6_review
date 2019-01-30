@@ -7,7 +7,7 @@ class Board extends React.Component {
         super(props);
 
         this.state = {
-            one : ['X', 'A', 'AB'],
+            one : [],
             two : [],
             three:  []
         }

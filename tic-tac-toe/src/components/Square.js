@@ -5,7 +5,9 @@ const Square = (props) => {
         height: '150px',
         width: '150px',
         backgroundColor: 'lightgrey',
-        margin: '5px 5px'
+        margin: '5px 5px',
+        display: 'inline-block',
+        textAlign: 'center'
     };
 
     console.log(props);
@@ -13,7 +15,7 @@ const Square = (props) => {
     return (
         <div style={squareStyle}>
             {props.markedBy 
-                ? <h1>{props.markedBy[props.column]}</h1>
+                ? <h1 style={{padding: '50px'}}>{props.markedBy[props.column]}</h1>
                 : <h1></h1>}
         </div>
     );
