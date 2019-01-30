@@ -11,7 +11,7 @@ const Square = (props) => {
     };
 
     return (
-        <div onClick={props.nextMove(props.rowId, props.column)} style={squareStyle}>
+        <div onClick={() => props.nextMove(props.rowId, props.column)} style={squareStyle}>
             {props.markedBy 
                 ? <h1 style={{padding: '50px'}}>{props.markedBy[props.column]}</h1>
                 : <h1></h1>}

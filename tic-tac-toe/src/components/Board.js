@@ -13,15 +13,11 @@ class Board extends React.Component {
     }
 
     nextMove = (rowId, columnId) => {
-        return () => {
-            var player = this.state.player === 1 ? 2 : 1;
-            var board = this.state.board.slice();
-            board[rowId][columnId] = this.state.player; 
-
-            this.setState({ board })
-            this.setState({ player });
-            
-        }
+        var player = this.state.player === 1 ? 2 : 1;
+        var board = this.state.board.slice();
+        board[rowId][columnId] = this.state.player; 
+        this.setState({ board })
+        this.setState({ player });
     }
 
     renderRows() {
