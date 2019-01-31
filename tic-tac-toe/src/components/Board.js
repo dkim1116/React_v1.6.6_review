@@ -7,17 +7,27 @@ class Board extends React.Component {
         super(props);
 
         this.state = {
-            board: Array(3).fill([]),
-            player: 1
+            board: Array(3).fill(Array(3).fill(null)),
+            player: 'X'
         }
     }
 
     nextMove = (rowId, columnId) => {
-        var player = this.state.player === 1 ? 2 : 1;
-        var board = this.state.board.slice();
-        board[rowId][columnId] = this.state.player; 
-        this.setState({ board })
+        var player = this.state.player === 'X' ? 'X' : 'Y';
+
         this.setState({ player });
+        this.setState((prevState) => {
+            board: prevState.board.map((row, rowIndex) => {
+                return row.map((square, squareIndex) => {
+                    if (rowIndex === rowId &&
+                        squareIndex === columnId) {
+                            return this.state.player;
+                        } else {
+                            return square;
+                        }
+                })
+            })
+        });
     }
 
     renderRows() {
