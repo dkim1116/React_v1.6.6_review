@@ -2,31 +2,39 @@ import React from 'react';
 
 import Row from './Row';
 
+const boardStyle = {
+    position: 'static',
+    left: '15%',
+    top: '5%'
+}
+
 class Board extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            board: Array(3).fill(Array(3).fill(null)),
+            board: Array(3).fill(Array(3).fill()),
             player: 'X'
         }
     }
 
     nextMove = (rowId, columnId) => {
-        var player = this.state.player === 'X' ? 'X' : 'Y';
-
-        this.setState({ player });
+        var player = this.state.player === 'X' ? 'O' : 'X';
+        
         this.setState((prevState) => {
-            board: prevState.board.map((row, rowIndex) => {
-                return row.map((square, squareIndex) => {
-                    if (rowIndex === rowId &&
-                        squareIndex === columnId) {
-                            return this.state.player;
-                        } else {
-                            return square;
-                        }
-                })
-            })
+            return { 
+                board: prevState.board.map((row, rowIndex) => {
+                    return row.map((square, squareIndex) => {
+                        if (rowIndex === rowId &&
+                            squareIndex === columnId) {
+                                return this.state.player;
+                            } else {
+                                return square;
+                            }
+                    });
+                }),
+                player: player
+            };
         });
     }
 
@@ -38,8 +46,12 @@ class Board extends React.Component {
 
     render() {
         return (
-            <div className="ui container">
-                {this.renderRows()}
+            <div>
+                <table style={boardStyle}>
+                    <tbody>
+                        {this.renderRows()}
+                    </tbody>
+                </table>
             </div>
         )
     }
