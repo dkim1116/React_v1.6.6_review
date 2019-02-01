@@ -1,0 +1,17 @@
+table {
+    width: 50%;
+    margin: auto
+}
+
+tbody {
+    display: table;
+}
+
+td {
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
